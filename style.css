@@ -1,90 +1,175 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-#container{
+#container {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid rgb(204, 204, 204);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#head{
+#head {
     margin-top: 10px;
     padding: 10px;
 }
 
-.box{
+.box {
     padding: 15px;
 }
 
-.box input{
+.box input {
     padding: 10px;
     font-size: 18px;
     width: 250px;
+    border: 1px solid rgb(164, 134, 172);
+    border-radius: 8px;
+    outline: none;
 }
 
-.btn{
+.box input:hover {
+    border-color: rgb(0, 123, 255);
+}
+
+.btn {
     padding: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.btn button{
+.btn button {
     padding: 10px;
     border-radius: 10px;
     width: 65%;
 }
 
-button.add{
+button.add {
     background-color: rgb(4, 237, 23);
     color: white;
     border: none;
     font-size: 16px;
     cursor: pointer;
+    user-select: none;
     transition: background 0.3s ease;
 }
 
-button.add:hover{
+button.add:hover {
+    transform: scale(1.1);
     background-color: rgb(23, 189, 5);
 }
 
-button.delete{
-    background-color: red;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+button.add:focus {
+    box-shadow: 0 0 10px rgba(23, 189, 5, 0.5);
 }
 
-button.delete:hover{
-    background-color: rgb(199, 23, 23);
-}
-
-#list{
+#list {
     margin-top: 15px;
     width: 100%;
 }
 
-#list li{
+#list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
     background: rgb(242, 242, 242);
     padding: 8px;
     margin: 5px 0;
     border-radius: 6px;
+    cursor: pointer;
+}
+
+#list li button {
+    margin-left: 8px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#list li button:first-of-type {
+    background: rgb(42, 186, 248);
+    color: white;
+    text-decoration: none;
+    user-select: none;
+}
+
+#list li button:first-of-type:hover {
+    background: rgb(15, 116, 159);
+}
+
+#list li button:last-of-type {
+    background: rgb(231, 76, 60);
+    color: white;
+    text-decoration: none;
+    user-select: none;
+}
+
+#list li button:last-of-type:hover {
+    background: rgb(192, 57, 43);
+}
+
+#error {
+    padding: 10px;
+    color: red;
+    user-select: none;
+}
+
+.para,
+p {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#list select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgb(204, 204, 204);
+    background-color: rgb(248, 249, 250);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+#list select:hover {
+    border-color: rgb(0, 123, 255);
+}
+
+#list select:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+        height: 100vh;
+    }
+    h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+    .box input {
+        font-size: 16px;
+    }
+    .button .add{
+        padding: 8px;
+        font-size: 14px;
+    }
 }
