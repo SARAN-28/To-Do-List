@@ -43,6 +43,9 @@ body {
 .box input:hover {
     border-color: rgb(0, 123, 255);
 }
+.box input:focus{
+    box-shadow: 0 0 5px rgba(0, 123, 255,0.5);
+}
 
 .btn {
     padding: 10px;
@@ -153,6 +156,18 @@ p {
 
 #list select:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.deleteAll button{
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+.deleteAll button:hover{
+    background-color: rgb(255, 35, 35);
 }
 
 @media (max-width: 480px) {

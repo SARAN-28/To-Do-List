@@ -3,12 +3,12 @@ const input = document.querySelector("#input")
 const list = document.getElementById("list")
 const count = document.getElementById("count")
 const completeCount = document.getElementById("completedCount")
+const deleteAll = document.querySelector(".deleteAll button")
 const error = document.querySelector("#error")
 
 let tasks = []
 let editIndex = null;
 let editSpan = null;
-
 
 function updateCount() {
     count.textContent = tasks.length
@@ -77,7 +77,7 @@ form.addEventListener("submit", function (e) {
 
     let pending = document.createElement("option")
     pending.value = "pending"
-    pending.textContent = "Panding"
+    pending.textContent = "Pending"
 
     let complete = document.createElement("option")
     complete.value = "complete"
@@ -99,8 +99,7 @@ form.addEventListener("submit", function (e) {
     li.appendChild(btnGroup)
     list.appendChild(li)
 
-    editBtn.addEventListener("click", function (e) {
-        e.stopPropagation()
+    editBtn.addEventListener("click", function () {
         input.value = span.textContent
         editIndex = tasks.indexOf(span.textContent)
         editSpan = span
@@ -108,11 +107,17 @@ form.addEventListener("submit", function (e) {
         document.querySelector(".add").textContent = "Update Task"
     })
 
-    deleteBtn.addEventListener("click", function (e) {
-        e.stopPropagation()
+    deleteBtn.addEventListener("click", function () {
         const index = tasks.indexOf(span.textContent)
         if (index > -1) tasks.splice(index, 1)
         li.remove()
+        updateCount()
+        updateCompleted()
+    })
+
+    deleteAll.addEventListener("click", function(){
+        tasks=[]
+        list.innerHTML=""
         updateCount()
         updateCompleted()
     })
